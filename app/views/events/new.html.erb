@@ -1,0 +1,21 @@
+<h1>Create Event</h1>
+<%= form_for(@event, url: yield(:path)) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br>
+
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br>
+
+  <%= f.label :event_date %>:
+  <%= f.date_field :event_date %><br>
+
+  <%= f.label :event_time %>:
+  <%= f.time_field :event_time %><br>
+
+  <%= f.label :description %>:
+  <%= f.text_area :description %>
+
+  <%= f.submit 'Submit', :name => 'submit' %>
+<% end %>
