@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Account creation successful!"
-      redirect_to @user
+      redirect_to events_path
     else
       render 'new'
     end
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @created_events = @user.created_events
-    @attending = @user.attended_events
+    @events = @user.created_events.all
+    @attending = @user.attended_events.all
   end
 
   private

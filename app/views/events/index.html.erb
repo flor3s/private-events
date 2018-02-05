@@ -1,20 +1,8 @@
-<h1>Upcoming Events</h1>
-	<% @upcoming.each do |f| %>
-		<span class="user"><%= link_to f.creator.username, f.creator %></span>
-		<span class="title"><%= f.title %></span>
-		<span class="location"><%= f.location %></span>
-		<span class="event_time"><%= f.event_time %></span>
-		<span class="event_date"><%= f.event_date %></span>
-		<span class="description"><%= f.description %></span>
-	<% end %>
-<br>
-<h1>Past Events</h1>
-	<% @past.each do |f| %>
-		<span class="user"><%= link_to f.creator.username, f.creator %></span>
-		<span class="title"><%= f.title %></span>
-		<span class="location"><%= f.location %></span>
-		<span class="event_time"><%= f.event_time %></span>
-		<span class="event_date"><%= f.event_date %></span>
-		<span class="description"><%= f.description %></span>
-	<% end %>
-<br>
+<% provide(:title, "Events") %>
+<div class="row">
+	<h2>Upcoming Events</h2>
+		<%= render @upcoming %>
+	<br>
+	<h2>Past Events</h2>
+		<%= render @past %>
+</div>

@@ -1,0 +1,18 @@
+<%= provide(:title, "Home") %>
+<% if !logged_in? %>
+	<div class='home-image'>
+		<div class='center'>
+			<div class='welcome-message'>
+    		<h1>
+      		Schedule. Invite. Attend.
+    		</h1>
+    	</div>
+    	<div class="container">
+     		<%= link_to new_user_path, class: "btn btn-lg btn-default" do %>
+     			<i class="glyphicon glyphicon-user"></i>
+     			<span class="sign-up">Sign Up</span>
+     		<% end %>
+    	</div>
+  	</div>
+ 	</div>
+<% end %>

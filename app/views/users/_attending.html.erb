@@ -1,0 +1,16 @@
+<% @attending.each do |f| %>
+		<div class="event-list-container well">
+					<div class="event-heading">
+						<h4 class="center"><%= link_to f.title, f %></h4><br>
+					</div>
+					<span class="location">
+						<i class="glyphicon glyphicon-map-marker"></i>
+						<%= f.location %>
+					</span>
+					<br>
+					<span class="event_date">
+						<i class="glyphicon glyphicon-calendar"></i>
+						<%= f.event_date.strftime("%a, %b %d %Y") %> at <%= f.event_time.strftime("%H:%M%p") %>
+					</span>
+				</div>
+<% end %>

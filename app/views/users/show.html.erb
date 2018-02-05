@@ -1,9 +1,25 @@
+<% provide(:title, @user.username) %>
 <h1><%= @user.username %></h1>
 <% if @user.created_events.any? %>
-		<h3>Events by <%= @user.username %>: (<%= @user.created_events.count %>)</h3>
-		<ol class="events">
-			<%= render @created_events %>
-		</ol>
+		<h2>Events by <%= @user.username %>: (<%= @user.created_events.count %>)</h2>
+			<% @events.each do |f| %>	
+				<div class="event-list-container well">
+					<div class="event-heading">
+						<h4 class="center"><%= link_to f.title, f %></h4>
+						<p class="user"> By: <%= f.creator.username %></span><br>
+					</div>
+					<p class="description"><%= f.description %></p>
+					<span class="location">
+						<i class="glyphicon glyphicon-map-marker"></i>
+						<%= f.location %>
+					</span>
+					<br>
+					<span class="event_date">
+						<i class="glyphicon glyphicon-calendar"></i>
+						<%= f.event_date.strftime("%a, %b %d %Y") %> at <%= f.event_time.strftime("%H:%M%p") %>
+					</span>
+				</div>
+			<% end %>
 <% end %>
-<h3>Events <%= @user.username %> is attending:</h3>
-<%= render @attending %>
+<h2>Events <%= @user.username %> is attending:</h2>
+<%= render 'attending' %>

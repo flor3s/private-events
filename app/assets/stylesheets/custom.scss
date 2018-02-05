@@ -4,23 +4,23 @@
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
+  background-color: #E3E3E3;
 }
 
 section {
   overflow: auto;
 }
 
-textarea {
-  resize: vertical;
-}
-
 .center {
   text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 10px;
+.container {
+  margin-bottom: 0px;
 }
 
 /* typography */
@@ -30,19 +30,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
+  font-weight: 700;
   letter-spacing: -2px;
-  margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: #777;
+}
+
+.container {
+  h3 {
+    text-align: center;
+  }
 }
 
 p {
@@ -57,7 +62,6 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -67,3 +71,77 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+.header-button, .dropdown-toggle {
+  font-weight: bold;
+}
+
+/* home page */
+
+.home-image {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  background: url(background.jpeg) no-repeat center center;
+  background-size: cover;
+}
+
+.welcome-message {
+  color: white;
+  text-shadow: 2px 2px 6px black;
+  font-family: Helvetica;
+}
+
+.btn {
+  background-color: #CDCDCD;
+  border-color: #CDCDCD;
+}
+
+
+/* forms */
+
+.well {
+  margin-top: 20px;
+}
+
+/* events */
+
+.event-list-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.event-heading {
+  border-bottom: 1px solid #CDCDCD;
+  text-align: left;
+  padding-left: 0.5em;
+  h4 {
+    margin-bottom: 0px;
+  }
+}
+
+.user {
+  text-align: center;
+  color: #777;
+}
+
+/* invitations */
+
+.new_invitation {
+  text-align: center;
+  .btn {
+    background-color: #777;
+  }
+}
+
+.attend {
+  width: 15%;
+  min-width: 150px;
+  margin: 0 auto;
+}
+

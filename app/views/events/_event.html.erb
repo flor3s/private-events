@@ -1,8 +1,18 @@
-<li id="event-<%= event.id %>">
-	<span class="user"><%= link_to event.creator.username, event.creator %></span>
-	<span class="title"><%= link_to event.title, event %></span>
-	<span class="location"><%= event.location %></span>
-	<span class="event_time"><%= event.event_time %></span>
-	<span class="event_date"><%= event.event_date %></span>
-	<span class="description"><%= event.description %></span>
-</li>
+<div class="event-list-container well">
+	<div class="event-heading">
+		<h4 class="center"><%= link_to event.title, event %></h4>
+		<p class="user"> By: <%= event.creator.username %></span><br>
+	</div>
+	<p class="description"><%= event.description %></p>
+	<span class="location">
+		<i class="glyphicon glyphicon-map-marker"></i>
+			<%= event.location %>
+		</span><br>
+		<span class="event_date">
+			<i class="glyphicon glyphicon-calendar"></i>
+		<%= event.event_date.strftime("%a, %b %d %Y") %> at <%= event.event_time.strftime("%H:%M%p") %>
+	</span>
+	<% if @attending != nil %>
+		<%= render 'events/attending' %>
+	<% end %>
+</div>

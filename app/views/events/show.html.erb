@@ -1,3 +1,22 @@
-<h1><%= @event.title %></h1>
+<% if logged_in? && invitation_exists?(@event.id, current_user.id) && !attending?(@event.id, current_user.id) %>
+	<h2>You've been invited! Click below to accept your invitation.</h2>
+	<div class="attend container">
+		<%= form_for(@attendee, url: attend_path) do |f| %>
+   		<%= f.hidden_field :attended_event_id, value: @event.id %>
+   		<%= f.hidden_field :attendee_id, value: current_user.id %>
+   		<%= f.submit 'Attend', class: "form-control btn btn-info center submit" %>
+		<% end %>
+	</div>
+<% end %>
+<br>
 <%= render @event %>
-<%= render 'attending' %>
+<% if logged_in? && current_user == @creator %>
+	<h2>Invite Users</h2>
+	<% @users.each do |u| %>
+		<%= form_for(@invite, url: invite_path) do |f| %>
+		 	<%= f.hidden_field :invitee_id, value: u.id %>
+    	<%= f.hidden_field :event_id, value: @event.id %>
+    	<%= f.submit "Invite #{u.username}", class: 'btn btn-small btn-primary' %><br><br>
+		<% end %>
+	<% end %>
+<% end %>

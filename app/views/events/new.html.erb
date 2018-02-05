@@ -1,21 +1,28 @@
-<h1>Create Event</h1>
-<%= form_for(@event, url: yield(:path)) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4 well">
+    <h2>Create Event</h2>
+    <%= form_for(@event, url: yield(:path)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %><br>
 
-  <%= f.label :location %>:
-  <%= f.text_field :location %><br>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control" %><br>
 
-  <%= f.label :event_date %>:
-  <%= f.date_field :event_date %><br>
+      <%= f.label :event_date %>
+      <%= f.date_field :event_date, class: "form-control" %><br>
 
-  <%= f.label :event_time %>:
-  <%= f.time_field :event_time %><br>
+      <%= f.label :event_time %>
+      <%= f.time_field :event_time, class: "form-control" %><br>
 
-  <%= f.label :description %>:
-  <%= f.text_area :description %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %><br>
 
-  <%= f.submit 'Submit', :name => 'submit' %>
-<% end %>
+      <%= hidden_field_tag :creator_id, current_user.id %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <%= f.submit 'Submit', :name => 'submit', class: "form-control btn btn-info" %>
+    <% end %>
+  </div>
+</div>
